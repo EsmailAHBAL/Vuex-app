@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <section class="container">
+   
+   <UsersTask v-if="home"></UsersTask>
+    <user-details-vue v-else></user-details-vue>
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import UserDetailsVue from "./components/UserDetails.vue";
+import UsersTask from "./components/Users-Task.vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  export default {
+    components:{ UsersTask ,UserDetailsVue},
+      data() {
+          return {
+              image: {'backgroundImage': "url(https://via.placeholder.com/150)",'url':"https://via.placeholder.com/150"}
+          };
+      },
+      computed:{
+        home(){
+                return this.$store.state.home
+            }
+      }
+  };
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
