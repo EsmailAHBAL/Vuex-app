@@ -1,4 +1,4 @@
-# salat-app
+# APp
 
 ## Project setup
 ```
